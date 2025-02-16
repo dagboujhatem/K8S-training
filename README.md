@@ -1,0 +1,2 @@
+# Kubernetes Training Overview
+This document provides an overview and roadmap for Kubernetes training. Whether you're new to Kubernetes or looking to deepen your knowledge, this guide will help you navigate through core concepts and best practices.
