@@ -1,0 +1,31 @@
+# Kubernetes Pod YAML for Multi-Container Setup
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multi-container-pod
+  labels:
+    app: multi-container-app
+spec:
+  containers:
+    - name: nginx
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+      resources:
+        limits:
+          memory: "256Mi"
+          cpu: "500m"
+        requests:
+          memory: "128Mi"
+          cpu: "250m"
+    - name: sidecar-logger
+      image: busybox
+      command: ["sh", "-c", "while true; do echo Logging from sidecar; sleep 5; done"]      
+      resources:
+        limits:
+          memory: "128Mi"
+          cpu: "250m"
+        requests:
+          memory: "64Mi"
+          cpu: "100m"
